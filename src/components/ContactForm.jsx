@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 const ContactForm = () => {
 // statevinitialized
-    const [contact, setContact] = useState({ name: "", email: "", phone: "" });
-
+const [contact, setContact] = useState({ name: "", email: "", phone: "" });
+// useNavigate hook
+const navigate = useNavigate();
 
 
 
