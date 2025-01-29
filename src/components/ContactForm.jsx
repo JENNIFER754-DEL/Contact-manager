@@ -10,9 +10,11 @@ const navigate = useNavigate();
 const handleChange = (e) => {
 setContact({ ...contact, [e.target.name]: e.target.value });
 };
+// Function to handle form submission
+const handleSubmit = async (e) => {
+    e.preventDefault(); // prevent default form submission
 
 
 
-
-
+}
 }
