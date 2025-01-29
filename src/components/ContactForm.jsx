@@ -13,8 +13,11 @@ setContact({ ...contact, [e.target.name]: e.target.value });
 // Function to handle form submission
 const handleSubmit = async (e) => {
     e.preventDefault(); // prevent default form submission
+// validation to prevent empty fields
+if (!contact.name || !contact.email || !contact.phone) {
+    alert("All fields are required!");
+    return; // Stops form submission if any field is empty
 
-
-
+}
 }
 }
