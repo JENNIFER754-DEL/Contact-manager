@@ -17,7 +17,12 @@ const handleSubmit = async (e) => {
 if (!contact.name || !contact.email || !contact.phone) {
     alert("All fields are required!");
     return; // Stops form submission if any field is empty
-
 }
-}
+try {
+// Sending a POST request to save the contact in db.json
+await fetch("http://localhost:3000/contacts", {
+    method: "POST", // Specifies the HTTP request method
+    headers: { "Content-Type": "application/json" }, // Defines JSON content type
+    body: JSON.stringify(contact), // Converts contact object to JSON format
+});
 }
