@@ -6,7 +6,10 @@ const ContactForm = () => {
 const [contact, setContact] = useState({ name: "", email: "", phone: "" });
 // useNavigate hook
 const navigate = useNavigate();
-
+// function to handle changes in input fields & update state
+const handleChange = (e) => {
+setContact({ ...contact, [e.target.name]: e.target.value });
+};
 
 
 
