@@ -1,7 +1,28 @@
 {
-    "contacts": [
-      { "id": 1, "name": "Kipngetich Kosgei", "email": "kipngetich.kosgei@student.moringaschool.com", "phone": "0711211446" },
-      { "id": 2, "name": "Craig Kibera", "email": "craig.kibera@student.moringaschool.com", "phone": "987-654-3210" }
-    ]
-  }
-  
+  "contacts": [
+    {
+      "id": 1738220241778,
+      "name": "Kipngetich Kosgei",
+      "email": "enginkipngetichkoskie@gmail.com",
+      "mobileNo": "0711211446"
+    },
+    {
+      "id": 1738220269978,
+      "name": "Kipngetich Kosgei",
+      "email": "enginkipngetichkoskie@gmail.com",
+      "mobileNo": "0711211446"
+    },
+    {
+      "id": 1738220612995,
+      "name": "Kipngetich Kosgei",
+      "email": "enginkipngetichkoskie@gmail.com",
+      "mobileNo": "0711211446"
+    },
+    {
+      "id": 1738220624373,
+      "name": "Kipngetich Kosgei",
+      "email": "enginkipngetichkoskie@gmail.com",
+      "mobileNo": "0711211446"
+    }
+  ]
+}
