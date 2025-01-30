@@ -1,46 +1,50 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./ContactForm.css";
-
+import "../styles/styles.css"; // Ensure the correct case-sensitive import
 
 const ContactForm = () => {
-// statevinitialized
-const [contact, setContact] = useState({ name: "", email: "", phone: "" });
-// useNavigate hook
-const navigate = useNavigate();
-// function to handle changes in input fields & update state
-const handleChange = (e) => {
-setContact({ ...contact, [e.target.name]: e.target.value });
-};
-// Function to handle form submission
-const handleSubmit = async (e) => {
-    e.preventDefault(); // prevent default form submission
-// validation to prevent empty fields
-if (!contact.name || !contact.email || !contact.phone) {
-    alert("All fields are required!");
-    return; // Stops form submission if any field is empty
-}
-try {
-// Sending a POST request to save the contact in db.json
-await fetch("http://localhost:3000/contacts", {
-    method: "POST", // Specifies the HTTP request method
-    headers: { "Content-Type": "application/json" }, // Defines JSON content type
-    body: JSON.stringify(contact), // Converts contact object to JSON format
-});
-navigate("/"); // Redirect to ContactList (homepage) after submission
-} catch (error) {
-  console.error("Error adding contact:", error); // Logs any error in the console
-}
-};
-// Rendering
-return (
+  // State to manage form inputs
+  const [contact, setContact] = useState({ name: "", email: "", phone: "" });
+
+  // Function to handle input changes
+  const handleChange = (e) => {
+    setContact({ ...contact, [e.target.name]: e.target.value });
+  };
+
+  // Function to handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+    // Validation to prevent empty fields
+    if (!contact.name || !contact.email || !contact.phone) {
+      alert("All fields are required!");
+      return;
+    }
+
+    try {
+      // Sending a POST request to save the contact in db.json
+      await fetch("http://localhost:3000/contacts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(contact),
+      });
+
+      // Show a success message
+      alert("Contact saved successfully!");
+
+      // ✅ Clear the input fields after submission
+      setContact({ name: "", email: "", phone: "" });
+      
+    } catch (error) {
+      console.error("Error adding contact:", error);
+    }
+  };
+
+  // Rendering
+  return (
     <div className="contact-form-container">
-      {/* Heading for the form */}
       <h2 className="form-title">Create New Contact</h2>
 
-      {/* Form element with onSubmit event handler */}
       <form onSubmit={handleSubmit} className="contact-form">
-        {/* Input field for Name */}
         <input
           type="text"
           name="name"
@@ -50,8 +54,6 @@ return (
           required
           className="form-input"
         />
-
-        {/* Input field for Email */}
         <input
           type="email"
           name="email"
@@ -61,8 +63,6 @@ return (
           required
           className="form-input"
         />
-
-        {/* Input field for Phone Number */}
         <input
           type="text"
           name="phone"
@@ -72,8 +72,6 @@ return (
           required
           className="form-input"
         />
-
-        {/* Submit button to save the contact */}
         <button type="submit" className="submit-button">
           Save Contact
         </button>
