@@ -1,0 +1,58 @@
+.bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 2. Logo styling */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+/* 3. Navigation links container */
+.navigator {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* 4. Individual link styling */
+.navigator a {
+  text-decoration: none;
+  color: #666;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+/* 5. Link hover effects */
+.navigator a:hover {
+  color: #333;
+  background-color: #e9ecef;
+}
+
+/* 6. Active link styling */
+.navigator a.active {
+  color: #007bff;
+  background-color: rgba(0,123,255,0.1);
+}
+
+/* 7. Responsive design */
+@media (max-width: 768px) {
+  .bar {
+      flex-direction: column;
+      padding: 1rem;
+  }
+  
+  .navigator {
+      margin-top: 1rem;
+      gap: 1rem;
+  }
+}
