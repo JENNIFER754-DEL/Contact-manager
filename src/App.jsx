@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home'
 import Contacts from './Contacts'
@@ -23,4 +24,4 @@ function App({contacts}) {
   );
 }
 
-export default App;
+export default App;  
