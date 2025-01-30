@@ -42,7 +42,7 @@ const ContactForm = () => {
   // Rendering
   return (
     <div className="contact-form-container">
-      <h2 className="form-title">Create New Contact Form</h2>
+      <h2 className="form-title">Create New Contact Form Addition</h2>
 
       <form onSubmit={handleSubmit} className="contact-form">
         <input
