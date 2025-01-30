@@ -1,0 +1,17 @@
+{
+  "users": [],
+  "contacts": [
+    {
+      "id": "6aaf",
+      "name": "Lucky",
+      "email": "wangiemamati@gmail.com",
+      "phone": "0759479158"
+    },
+    {
+      "id": "c303",
+      "name": "Craig",
+      "email": "craigkibera@gmail.com",
+      "phone": "0790238100"
+    }
+  ]
+}
