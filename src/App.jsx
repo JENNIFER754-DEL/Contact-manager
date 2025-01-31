@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ContactList from "./components/ContactList";
-import SearchBar from   "./components/SearchBar"
+import SearchBar from   "./components/SearchBar";
+import "./App.css"; // css style
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
