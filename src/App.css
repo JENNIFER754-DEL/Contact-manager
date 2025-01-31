@@ -117,7 +117,6 @@ form {
   width: 300px; /* Fixed width for form */
 }
 
-<<<<<<< HEAD
 input {
   margin-bottom: 15px;
   padding: 10px;
@@ -158,20 +157,7 @@ button:hover {
 .logout-button:hover {
   background-color: #e60000; /* Darker red on hover */
 }
-=======
-/* 7. Responsive design */
-@media (max-width: 768px) {
-  .bar {
-      flex-direction: column;
-      padding: 1rem;
-  }
-  
-  .navigator {
-      margin-top: 1rem;
-      gap: 1rem;
-  }
-<<<<<<< HEAD
-}
+
 
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
@@ -195,7 +181,5 @@ button:hover {
   min-height: 100vh; /* Ensures content is centered even when the window height is large */
   text-align: center; /* Centers the text inside elements */
 }
-=======
-}
->>>>>>> 0e7e2a736e616c38ee66998fffe786bf70689308
->>>>>>> origin/main
+
+
