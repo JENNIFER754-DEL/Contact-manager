@@ -9,13 +9,14 @@ import ContactForm from './components/ContactForm';
 import ContactList from './components/ContactList';
 import SearchBar from './components/SearchBar';
 
-function App({ contacts }) {
+const App = () => {
   const [contacts, setContacts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  // Fetch contacts from the API
   useEffect(() => {
     fetch("http://localhost:3000/contacts")
       .then((response) => response.json())
@@ -29,10 +30,11 @@ function App({ contacts }) {
   }, []);
 
   // Filter contacts based on search query
-  const filteredContacts = contacts.filter((contact) =>
-    contact.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    contact.mobileNo.includes(searchQuery)
-  );
+  const filteredContacts = contacts.filter((contact) => {
+    const nameMatch = contact.name && contact.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const mobileMatch = contact.mobileNo && contact.mobileNo.includes(searchQuery);
+    return nameMatch || mobileMatch;
+  });
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -42,7 +44,6 @@ function App({ contacts }) {
       const userData = { username, password };
 
       try {
-        // Send a POST request to the JSON server
         const response = await fetch('http://localhost:3000/contacts', {
           method: 'POST',
           headers: {
@@ -52,9 +53,9 @@ function App({ contacts }) {
         });
 
         if (response.ok) {
-          setIsLoggedIn(true); 
-          localStorage.setItem('isLoggedIn', 'true'); 
-          setUsername(''); 
+          setIsLoggedIn(true);
+          localStorage.setItem('isLoggedIn', 'true');
+          setUsername('');
           setPassword('');
         } else {
           console.error('Failed to add user');
@@ -67,7 +68,7 @@ function App({ contacts }) {
 
   const handleLogout = () => {
     setIsLoggedIn(false);
-    localStorage.removeItem('isLoggedIn'); // Remove login status from local storage
+    localStorage.removeItem('isLoggedIn');
   };
 
   return (
@@ -75,13 +76,12 @@ function App({ contacts }) {
       {isLoggedIn ? (
         <>
           <Navbar onLogout={handleLogout} />
-          {/* Define the Routes for navigation */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contacts" element={<Contacts contacts={contacts} />} />
+            <Route path="/contact-list" element={<ContactList contacts={filteredContacts} />} />
             <Route path="/details" element={<Details />} />
             <Route path="/contact-form" element={<ContactForm />} />
-            <Route path="/contact-list" element={<ContactList contacts={filteredContacts} />} /> {/* ContactList route added */}
           </Routes>
 
           <div>
@@ -116,6 +116,6 @@ function App({ contacts }) {
       )}
     </Router>
   );
-}
+};
 
 export default App;
