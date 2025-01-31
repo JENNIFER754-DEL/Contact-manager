@@ -1,6 +1,4 @@
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
     "contacts": [
       {
         "id": "1",
@@ -60,65 +58,3 @@
       }
     ]
   }
-=======
-  "contacts": [
-    
-    {
-      "id": "2",
-      "name": "vincent Smith",
-      "email": "janesmith@email.com",
-      "mobileNo": "0723456789"
-    },
-    {
-      "id": "3",
-      "name": "Alice john",
-      "email": "alicebrown@gmail.com",
-      "mobileNo": "0734567890"
-    },
-    {
-      "id": "3367",
-      "name": "Kipngetich Kosgei",
-      "email": "enginkipngetichkoskie@gmail.com",
-      "mobileNo": "0711211446"
-    },
-    {
-      "id": "e0da",
-      "name": "stantley Langat",
-      "email": "langat@gmail.com",
-      "mobileNo": "07324465654677"
-    },
-  
-
-    {
-      "id": 1738220241778,
-      "name": "Craig Kibera",
-      "email": "craigkibera@gmail.com",
-      "mobileNo": "07864645335"
-    },
-    {
-      "id": 1738220269978,
-      "name": "Jeniffer Wanjiru",
-      "email": "janifferwanjiru@gmail.com",
-      "mobileNo": "0790987654"
-    }
-  ]
-}
->>>>>>> kk
-=======
-  "users": [],
-  "contacts": [
-    {
-      "id": "6aaf",
-      "name": "Lucky",
-      "email": "wangiemamati@gmail.com",
-      "phone": "0759479158"
-    },
-    {
-      "id": "c303",
-      "name": "Craig",
-      "email": "craigkibera@gmail.com",
-      "phone": "0790238100"
-    }
-  ]
-}
->>>>>>> 0e7e2a736e616c38ee66998fffe786bf70689308

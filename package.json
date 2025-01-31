@@ -10,11 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
     "font-awesome": "^4.7.0",
-=======
+
     "lucide-react": "^0.474.0",
->>>>>>> 0e7e2a736e616c38ee66998fffe786bf70689308
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.1.3",
