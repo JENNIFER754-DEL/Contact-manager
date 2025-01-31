@@ -6,26 +6,39 @@ import Contacts from './Contacts';
 import Details from './Details';
 import Navbar from './components/Navbar';
 import ContactForm from './components/ContactForm';
+import ContactList from './components/ContactList';
+import SearchBar from './components/SearchBar';
 
 function App({ contacts }) {
+  const [contacts, setContacts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  // Check local storage for logged in status when the component mounts
   useEffect(() => {
+    fetch("http://localhost:3000/contacts")
+      .then((response) => response.json())
+      .then((data) => setContacts(data))
+      .catch((error) => console.log("Error fetching contacts:", error));
+
     const storedLoginStatus = localStorage.getItem('isLoggedIn');
     if (storedLoginStatus === 'true') {
       setIsLoggedIn(true);
     }
   }, []);
 
+  // Filter contacts based on search query
+  const filteredContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    contact.mobileNo.includes(searchQuery)
+  );
+
   const handleLogin = async (e) => {
-    e.preventDefault(); // Prevent the default form submission
+    e.preventDefault();
 
     // Check if username and password are filled
     if (username && password) {
-      // Create a user object to send
       const userData = { username, password };
 
       try {
@@ -39,10 +52,9 @@ function App({ contacts }) {
         });
 
         if (response.ok) {
-          setIsLoggedIn(true); // Set logged in state
-          localStorage.setItem('isLoggedIn', 'true'); // Store login status in local storage
-          // Optionally reset the form fields
-          setUsername('');
+          setIsLoggedIn(true); 
+          localStorage.setItem('isLoggedIn', 'true'); 
+          setUsername(''); 
           setPassword('');
         } else {
           console.error('Failed to add user');
@@ -68,8 +80,17 @@ function App({ contacts }) {
             <Route path="/" element={<Home />} />
             <Route path="/contacts" element={<Contacts contacts={contacts} />} />
             <Route path="/details" element={<Details />} />
-            <Route path="/contact-form" element={<ContactForm />} /> {/* Add this route */}
+            <Route path="/contact-form" element={<ContactForm />} />
+            <Route path="/contact-list" element={<ContactList contacts={filteredContacts} />} /> {/* ContactList route added */}
           </Routes>
+
+          <div>
+            <h1>Contact Manager</h1>
+            <button>Add Contacts</button>
+            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+            <ContactList contacts={filteredContacts} />
+            <button>Delete</button> <br /> <button>Edit</button>
+          </div>
         </>
       ) : (
         <div className="login-container">
