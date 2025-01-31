@@ -1,5 +1,5 @@
 {
-  "users": [],
+  
   "contacts": [
     {
       "id": "6aaf",
@@ -12,6 +12,11 @@
       "name": "Craig",
       "email": "craigkibera@gmail.com",
       "phone": "0790238100"
+    },
+    {
+      "id": "4c87",
+      "username": "nhhhhh",
+      "password": "mmmmmmm"
     }
   ]
 }

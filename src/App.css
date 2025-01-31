@@ -1,58 +1,159 @@
-.bar {
+
+/* src/Navbar.css */
+
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set background and padding for the body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Navbar styling */
+.navbar {
+  background-color: #333;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #f8f9fa;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 15px 30px;
 }
 
-/* 2. Logo styling */
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
-  margin: 0;
-}
-
-/* 3. Navigation links container */
-.navigator {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-
-/* 4. Individual link styling */
-.navigator a {
+.navbar .logo a {
+  color: #fff;
+  font-size: 24px;
   text-decoration: none;
-  color: #666;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  font-weight: bold;
 }
 
-/* 5. Link hover effects */
-.navigator a:hover {
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ff6347; /* Tomato color */
+}
+
+/* Styling for the login and signup buttons */
+.auth-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.auth-btn {
+  padding: 8px 20px;
+  border: 2px solid #fff;  /* Border color white */
+  background-color: transparent;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+/* Hover effect for the buttons */
+.auth-btn:hover {
+  background-color: #007bff;  /* Blue background on hover */
+  border-color: #007bff;      /* Blue border on hover */
+  color: #fff;                /* Text color stays white */
+}
+
+/* Specific styles for login and signup buttons */
+.login-btn {
+  border-color: #ff7f50;  /* Orange border for login */
+}
+
+.signup-btn {
+  border-color: #32cd32;  /* Green border for signup */
+}
+/* App.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
   color: #333;
-  background-color: #e9ecef;
 }
 
-/* 6. Active link styling */
-.navigator a.active {
-  color: #007bff;
-  background-color: rgba(0,123,255,0.1);
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px; /* Fixed width for form */
 }
 
-/* 7. Responsive design */
-@media (max-width: 768px) {
-  .bar {
-      flex-direction: column;
-      padding: 1rem;
-  }
-  
-  .navigator {
-      margin-top: 1rem;
-      gap: 1rem;
-  }
+input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+.logout-button {
+  background-color: #ff4d4d; /* Red background */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  padding: 10px 15px; /* Padding */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Transition effect */
+}
+
+.logout-button:hover {
+  background-color: #e60000; /* Darker red on hover */
 }
