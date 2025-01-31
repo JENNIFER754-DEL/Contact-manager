@@ -30,10 +30,11 @@ const App = () => {
   }, []);
 
   // Filter contacts based on search query
-  const filteredContacts = contacts.filter((contact) =>
-    contact.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    contact.mobileNo.includes(searchQuery)
-  );
+  const filteredContacts = contacts.filter((contact) => {
+    const nameMatch = contact.name && contact.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const mobileMatch = contact.mobileNo && contact.mobileNo.includes(searchQuery);
+    return nameMatch || mobileMatch;
+  });
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -78,7 +79,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contacts" element={<Contacts contacts={contacts} />} />
-            <Route path="/contact-list" element={<ContactList contacts={filteredContacts} />} /> {/* New Route for ContactList */}
+            <Route path="/contact-list" element={<ContactList contacts={filteredContacts} />} /> 
             <Route path="/details" element={<Details />} />
             <Route path="/contact-form" element={<ContactForm />} />
           </Routes>
