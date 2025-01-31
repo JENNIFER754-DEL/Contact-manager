@@ -6,38 +6,39 @@ import Contacts from './Contacts';
 import Details from './Details';
 import Navbar from './components/Navbar';
 import ContactForm from './components/ContactForm';
-import ContactList from "./components/ContactList";
-import SearchBar from "./components/SearchBar"; // Assuming this is defined somewhere
+import ContactList from './components/ContactList';
+import SearchBar from './components/SearchBar';
 
-function App({ contacts }) {
+const App = () => {
+  const [contacts, setContacts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [contacts, setContacts] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredContacts = contacts.filter((contact) =>
-    contact.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    contact.mobileNo.includes(searchQuery)
-  );
-
+  // Fetch contacts from the API
   useEffect(() => {
     fetch("http://localhost:3000/contacts")
       .then((response) => response.json())
       .then((data) => setContacts(data))
       .catch((error) => console.log("Error fetching contacts:", error));
-  }, []);
 
-  useEffect(() => {
     const storedLoginStatus = localStorage.getItem('isLoggedIn');
     if (storedLoginStatus === 'true') {
       setIsLoggedIn(true);
     }
   }, []);
 
-  const handleLogin = async (e) => {
-    e.preventDefault(); // Prevent the default form submission
+  // Filter contacts based on search query
+  const filteredContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    contact.mobileNo.includes(searchQuery)
+  );
 
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    // Check if username and password are filled
     if (username && password) {
       const userData = { username, password };
 
@@ -77,11 +78,18 @@ function App({ contacts }) {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contacts" element={<Contacts contacts={contacts} />} />
+            <Route path="/contact-list" element={<ContactList contacts={filteredContacts} />} /> {/* New Route for ContactList */}
             <Route path="/details" element={<Details />} />
             <Route path="/contact-form" element={<ContactForm />} />
-            {/* You can include ContactList inside the Contacts component */}
-            <Route path="/contact-list" element={<ContactList contacts={filteredContacts} />} />
           </Routes>
+
+          <div>
+            <h1>Contact Manager</h1>
+            <button>Add Contacts</button>
+            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+            <ContactList contacts={filteredContacts} />
+            <button>Delete</button> <br /> <button>Edit</button>
+          </div>
         </>
       ) : (
         <div className="login-container">
@@ -107,44 +115,6 @@ function App({ contacts }) {
       )}
     </Router>
   );
-}
+};
 
 export default App;
-
-// import React, { useState, useEffect } from "react";
-// import ContactList from "./components/ContactList";
-// import SearchBar from   "./components/SearchBar";
-// import "./App.css"; // css style
-
-// const App = () => {
-//   const [contacts, setContacts] = useState([]);
-//   const [searchQuery, setSearchQuery] = useState("");
-
-//   // Fetch contacts from the API
-//   useEffect(() => {
-//     fetch("http://localhost:3000/contacts")
-//       .then((response) => response.json())
-//       .then((data) => setContacts(data))
-//       .catch((error) => console.log("Error fetching contacts:", error));
-//   }, []);
-
-//   // Filter contacts based on search query
-//   const filteredContacts = contacts.filter((contact) =>
-//     contact.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-//     contact.mobileNo.includes(searchQuery)
-//   );
-
-//   return (
-//     <div>
-//       <h1>Contact Manager</h1>
-//       <button>Add Contacts</button>
-//        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-//       <ContactList contacts={filteredContacts} /> 
-//       <button>Delete</button> <br/> <button>Edit</button>
-    
-
-//     </div>
-//   );
-// };
-
-

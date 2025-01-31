@@ -1,11 +1,12 @@
-import React from 'react'
-import ContactList from './components/ContactList'
+import React from 'react';
+import ContactList from './components/ContactList';
+
 function Contacts() {
   return (
     <div>
-      <ContactList/>
+      <ContactList />
     </div>
-  )
+  );
 }
 
-export default Contacts
+export default Contacts;
