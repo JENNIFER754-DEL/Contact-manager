@@ -6,13 +6,28 @@ import Contacts from './Contacts';
 import Details from './Details';
 import Navbar from './components/Navbar';
 import ContactForm from './components/ContactForm';
+import ContactList from "./components/ContactList";
+import SearchBar from "./components/SearchBar"; // Assuming this is defined somewhere
 
 function App({ contacts }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [contacts, setContacts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  // Check local storage for logged in status when the component mounts
+  const filteredContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    contact.mobileNo.includes(searchQuery)
+  );
+
+  useEffect(() => {
+    fetch("http://localhost:3000/contacts")
+      .then((response) => response.json())
+      .then((data) => setContacts(data))
+      .catch((error) => console.log("Error fetching contacts:", error));
+  }, []);
+
   useEffect(() => {
     const storedLoginStatus = localStorage.getItem('isLoggedIn');
     if (storedLoginStatus === 'true') {
@@ -23,13 +38,10 @@ function App({ contacts }) {
   const handleLogin = async (e) => {
     e.preventDefault(); // Prevent the default form submission
 
-    // Check if username and password are filled
     if (username && password) {
-      // Create a user object to send
       const userData = { username, password };
 
       try {
-        // Send a POST request to the JSON server
         const response = await fetch('http://localhost:3000/contacts', {
           method: 'POST',
           headers: {
@@ -39,9 +51,8 @@ function App({ contacts }) {
         });
 
         if (response.ok) {
-          setIsLoggedIn(true); // Set logged in state
-          localStorage.setItem('isLoggedIn', 'true'); // Store login status in local storage
-          // Optionally reset the form fields
+          setIsLoggedIn(true);
+          localStorage.setItem('isLoggedIn', 'true');
           setUsername('');
           setPassword('');
         } else {
@@ -55,7 +66,7 @@ function App({ contacts }) {
 
   const handleLogout = () => {
     setIsLoggedIn(false);
-    localStorage.removeItem('isLoggedIn'); // Remove login status from local storage
+    localStorage.removeItem('isLoggedIn');
   };
 
   return (
@@ -63,12 +74,13 @@ function App({ contacts }) {
       {isLoggedIn ? (
         <>
           <Navbar onLogout={handleLogout} />
-          {/* Define the Routes for navigation */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contacts" element={<Contacts contacts={contacts} />} />
             <Route path="/details" element={<Details />} />
-            <Route path="/contact-form" element={<ContactForm />} /> {/* Add this route */}
+            <Route path="/contact-form" element={<ContactForm />} />
+            {/* You can include ContactList inside the Contacts component */}
+            <Route path="/contact-list" element={<ContactList contacts={filteredContacts} />} />
           </Routes>
         </>
       ) : (
@@ -98,3 +110,41 @@ function App({ contacts }) {
 }
 
 export default App;
+
+// import React, { useState, useEffect } from "react";
+// import ContactList from "./components/ContactList";
+// import SearchBar from   "./components/SearchBar";
+// import "./App.css"; // css style
+
+// const App = () => {
+//   const [contacts, setContacts] = useState([]);
+//   const [searchQuery, setSearchQuery] = useState("");
+
+//   // Fetch contacts from the API
+//   useEffect(() => {
+//     fetch("http://localhost:3000/contacts")
+//       .then((response) => response.json())
+//       .then((data) => setContacts(data))
+//       .catch((error) => console.log("Error fetching contacts:", error));
+//   }, []);
+
+//   // Filter contacts based on search query
+//   const filteredContacts = contacts.filter((contact) =>
+//     contact.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+//     contact.mobileNo.includes(searchQuery)
+//   );
+
+//   return (
+//     <div>
+//       <h1>Contact Manager</h1>
+//       <button>Add Contacts</button>
+//        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+//       <ContactList contacts={filteredContacts} /> 
+//       <button>Delete</button> <br/> <button>Edit</button>
+    
+
+//     </div>
+//   );
+// };
+
+

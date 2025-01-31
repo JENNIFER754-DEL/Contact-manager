@@ -1,8 +1,20 @@
-# React + Vite
+# 📞 Contact Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React-based contact management application that allows users to **add, search, and display contacts**. It uses **JSON Server** for mock backend API operations.
 
-Currently, two official plugins are available:
+## 🚀 Features
+- Add new contacts (Name, Email, Mobile Number)
+- Search contacts by name, email, or mobile number
+- Display a list of contacts
+- Real-time filtering of contacts
+- Uses `useState` and `useEffect` for state management
+- Fetches data from a mock API (`db.json`)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+
+## 📦 Installation & Setup
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/your-username/contact-manager.git
+cd contact-manager
