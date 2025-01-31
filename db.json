@@ -2,20 +2,20 @@
     "contacts": [
       {
         "id": "1",
-        "name": "John Doe",
-        "email": "johndoe@example.com",
+        "name": "Jeniffer Wanjiru",
+        "email": "johndoe@gmail.com",
         "mobileNo": "0712345678"
       },
       {
         "id": "2",
-        "name": "Jane Smith",
-        "email": "janesmith@example.com",
+        "name": "Nzau Mercy",
+        "email": "janesmith@gmail.com",
         "mobileNo": "0723456789"
       },
       {
         "id": "3",
         "name": "Alice Brown",
-        "email": "alicebrown@example.com",
+        "email": "alicebrown@student.moringaschool.com",
         "mobileNo": "0734567890"
       },
       {
