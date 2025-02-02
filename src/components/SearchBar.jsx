@@ -15,6 +15,14 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
                 fontSize: "16px",
              }}
         placeholder="Search Contacts"
+        style={{
+          padding: "10px",
+          width: "80%",
+          maxWidth: "400px",
+          border: "1px solid #ccc",
+          borderRadius: "5px",
+          fontSize: "16px"
+        }}
       />
     </div>
   );

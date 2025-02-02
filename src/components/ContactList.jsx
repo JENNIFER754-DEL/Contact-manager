@@ -1,33 +1,46 @@
 import React from "react";
 
 const ContactList = ({ contacts }) => {
+  if (!contacts || contacts.length === 0) {
+    return (
+      <p style={{ textAlign: "center", fontSize: "18px", color: "gray" }}>
+        No contacts available.
+      </p>
+    );
+  }
+
   return (
     <div
       style={{
-        padding: "20px",
-        border: "1px solid #ccc",
-        borderRadius: "5px",
-        backgroundColor:"violet",
-        boxShadow: "0 2px 5px hsla(120, 81.80%, 2.20%, 0.10)",
-        fontFamily: "Arial, sans-serif",
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        gap: "30px",
+        padding: "70px",
       }}
     >
-      <ul style={{ listStyleType: "none", padding: "2" }}>
-        {contacts.map((contact) => (
-          <li
-            key={contact.id}
-            style={{
-              marginBottom: "15px", colorAdjust: "red",
-              padding: "10px",
-              borderBottom: "1px solid #ddd",
-            }}
-          >
-            <h3 style={{ margin: "5px 0", color: "#333" }}>{contact.name}</h3>
-            <p style={{ margin: "5px 0", color: "#555" }}>{contact.email}</p>
-            <p style={{ margin: "5px 0", color: "#777" }}>{contact.mobileNo}</p>
-          </li>
-        ))}
-      </ul>
+      {contacts.map((contact) => (
+        <div
+          key={contact.id}
+          style={{
+            width: "280px",
+            border: "1px solid #ddd",
+            borderRadius: "10px",
+            padding: "15px",
+            boxShadow: "2px 2px 10px rgba(0, 0, 0, 0.1)",
+            textAlign: "center",
+            backgroundColor: "#fff",
+          }}
+        >
+          <h3 style={{ margin: "10px 0", color: "#333" }}>{contact.name}</h3>
+          <p style={{ margin: "5px 0", fontSize: "16px", color: "#555" }}>
+            📧 {contact.email}
+          </p>
+          <p style={{ margin: "5px 0", fontSize: "16px", color: "#555" }}>
+            📞 {contact.mobileNo}
+          </p>
+        </div>
+      ))}
     </div>
   );
 };

@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import ContactList from './components/ContactList';
 
-function Contacts() {
+function Contacts({contacts}) {
   return (
     <div>
-      <h1>contact page</h1>
+    <ContactList contacts={contacts}/>
     </div>
-  )
+  );
 }
 
-export default Contacts
+export default Contacts;
