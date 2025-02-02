@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ContactList from "./components/ContactList";
-import SearchBar from   "./components/SearchBar"
+import SearchBar from "./components/SearchBar";
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
@@ -11,19 +11,8 @@ const App = () => {
     fetch("http://localhost:3000/contacts")
       .then((response) => response.json())
       .then((data) => setContacts(data))
-      .catch((error) => console.error("Error fetching contacts:", error));
+      .catch((error) => console.log("Error fetching contacts:", error));
   }, []);
-
-  // // Delete a contact
-  const deleteContact = (id) => {
-    fetch(`http://localhost:3000/contacts/${id}`, {
-      method: "DELETE",
-    })
-      .then(() => {
-        setContacts(contacts.filter((contact) => contact.id !== id));
-      })
-      .catch((error) => console.error("Error deleting contact:", error));
-  };
 
   // Filter contacts based on search query
   const filteredContacts = contacts.filter((contact) =>
@@ -32,12 +21,14 @@ const App = () => {
   );
 
   return (
-    <div>
-      <h1>Contact Manager</h1>
-      <button>Add Contacts</button>
-       <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <ContactList contacts={filteredContacts} deleteContact={deleteContact} />
-      <button>Delete</button>
+    <div style={{ textAlign: "center", padding: "40px", fontFamily: "Arial, sans-serif" }}>
+      <h1 style={{ color: "Green" }}>Contact Manager</h1>
+      <button style={{ margin: "10px", padding: "10px", backgroundColor: "#4CAF50", color: "white", border: "none", borderRadius: "5px", cursor: "pointer" }}>Add Contacts</button>
+      <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <ContactList contacts={filteredContacts} />
+      <button style={{ margin: "10px", padding: "10px", backgroundColor: "#f44336", color: "white", border: "none", borderRadius: "5px", cursor: "pointer" }}>Delete</button>
+      <br />
+      <button style={{ margin: "10px", padding: "10px", backgroundColor: "#008CBA", color: "white", border: "none", borderRadius: "5px", cursor: "pointer" }}>Edit</button>
     </div>
   );
 };
