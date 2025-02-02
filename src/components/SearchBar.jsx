@@ -6,7 +6,14 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
       <input
         type="text"
         value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
+        onChange={(e) =>
+             setSearchQuery(e.target.value)}
+             style ={{
+                padding: "10px",
+                marginBottom: "20px",
+                width: "100%",
+                fontSize: "16px",
+             }}
         placeholder="Search Contacts"
       />
     </div>
