@@ -83,8 +83,12 @@ function App() {
               path="/contacts"
               element={
                 <>
-                  <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+                
                   <Contacts contacts={filteredContacts} />
+                  <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+      <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+    </div>
+                  
                 </>
               }
             />
