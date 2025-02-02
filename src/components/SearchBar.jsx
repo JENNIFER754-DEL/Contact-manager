@@ -2,7 +2,7 @@ import React from "react";
 
 const SearchBar = ({ searchQuery, setSearchQuery }) => {
   return (
-    <div style={{ textAlign: "center", margin: "20px 0" }}>
+    <div>
       <input
         type="text"
         value={searchQuery}
