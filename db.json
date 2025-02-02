@@ -1,4 +1,46 @@
 {
+  "users": [
+    {
+      "id": "4c87",
+      "username": "nhhhhh",
+      "password": "mmmmmmm"
+    },
+    {
+      "id": "4af5",
+      "username": "mmmmm",
+      "password": "999999999"
+    },
+    {
+      "id": "263d",
+      "username": "nmi",
+      "password": "123456"
+    },
+    {
+      "id": "5655",
+      "username": "Jasper",
+      "password": "123456"
+    },
+    {
+      "id": "6fe6",
+      "username": "hjhjhhhh",
+      "password": "1223334"
+    },
+    {
+      "id": "ccd1",
+      "username": "yobra",
+      "password": "0987609876"
+    },
+    {
+      "id": "cca7",
+      "username": "jjjj",
+      "password": "jjjjjjjkjihfiuuityhiguf6tr567988"
+    },
+    {
+      "id": "fd1a",
+      "username": "yuyuuuu",
+      "password": "5t55656666"
+    }
+  ],
   "contacts": [
     {
       "id": "6aaf",
@@ -13,68 +55,64 @@
       "phone": "0790238100"
     },
     {
-      "id": "4c87",
-      "username": "nhhhhh",
-      "password": "mmmmmmm"
-    },
-    {
       "id": "1",
       "name": "Jeniffer Wanjiru",
       "email": "johndoe@gmail.com",
-      "mobileNo": "0712345678"
+      "phone": "0712345678"
     },
     {
       "id": "2",
       "name": "Nzau Mercy",
       "email": "janesmith@gmail.com",
-      "mobileNo": "0723456789"
+      "phone": "0723456789"
     },
     {
       "id": "3",
       "name": "Alice Brown",
       "email": "alicebrown@student.moringaschool.com",
-      "mobileNo": "0734567890"
+      "phone": "0734567890"
     },
     {
       "id": "3367",
       "name": "Kipngetich Kosgei",
       "email": "enginkipngetichkoskie@gmail.com",
-      "mobileNo": "0711211446"
+      "phone": "0711211446"
     },
     {
       "id": "e0da",
       "name": "Stantley Langat",
       "email": "langat@gmail.com",
-      "mobileNo": "07324465654677"
+      "phone": "07324465654677"
     },
     {
       "id": "1738220241778",
       "name": "Craig Kibera",
       "email": "craigkibera@gmail.com",
-      "mobileNo": "07864645335"
+      "phone": "07864645335"
     },
     {
       "id": "1738220269978",
       "name": "Jeniffer Wanjiru",
       "email": "janifferwanjiru@gmail.com",
-      "mobileNo": "0790987654"
+      "phone": "0790987654"
     },
     {
       "id": "1738220612995",
       "name": "Lucky Mamati",
       "email": "luckymamati@gmail.com",
-      "mobileNo": "0798656454"
+      "phone": "0798656454"
     },
     {
       "id": "1738220624373",
       "name": "Kipngetich Kosgei",
       "email": "enginkipngetichkoskie@gmail.com",
-      "mobileNo": "0711211446"
+      "phone": "0711211446"
     },
     {
-      "id": "4af5",
-      "username": "mmmmm",
-      "password": "999999999"
+      "id": "558d",
+      "name": "Craig",
+      "email": "craigituro@gmail.com",
+      "phone": "0790238188"
     }
   ]
 }

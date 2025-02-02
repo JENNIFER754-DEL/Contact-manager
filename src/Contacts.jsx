@@ -1,10 +1,10 @@
 import React from 'react'
 import ContactList from './components/ContactList';
 
-function Contacts() {
+function Contacts({contacts}) {
   return (
     <div>
-    <ContactList/>
+    <ContactList contacts={contacts}/>
     </div>
   )
 }
