@@ -15,8 +15,8 @@ const ContactList = ({ contacts }) => {
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "center",
-        gap: "20px",
-        padding: "20px",
+        gap: "30px",
+        padding: "70px",
       }}
     >
       {contacts.map((contact) => (
