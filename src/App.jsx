@@ -6,17 +6,18 @@ import Contacts from './Contacts';
 import Details from './Details';
 import Navbar from './components/Navbar';
 import ContactForm from './components/ContactForm';
-import ContactList from './components/ContactList';
 import SearchBar from './components/SearchBar';
+import Footer from './components/Footer'; 
+import HeroSection from './components/HeroSection';
 
-const App = () => {
+
+function App() {
   const [contacts, setContacts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  // Fetch contacts from the API
   useEffect(() => {
     fetch("http://localhost:3000/contacts")
       .then((response) => response.json())
@@ -29,27 +30,19 @@ const App = () => {
     }
   }, []);
 
-  // Filter contacts based on search query
-  const filteredContacts = contacts.filter((contact) => {
-    const nameMatch = contact.name && contact.name.toLowerCase().includes(searchQuery.toLowerCase());
-    const mobileMatch = contact.mobileNo && contact.mobileNo.includes(searchQuery);
-    return nameMatch || mobileMatch;
-  });
-
   const handleLogin = async (e) => {
     e.preventDefault();
 
     // Check if username and password are filled
     if (username && password) {
-      const userData = { username, password };
-
+      // Simulate a login request (replace with actual authentication endpoint)
       try {
-        const response = await fetch('http://localhost:3000/contacts', {
+        const response = await fetch('http://localhost:3000/users', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(userData),
+          body: JSON.stringify({ username, password }),
         });
 
         if (response.ok) {
@@ -58,7 +51,7 @@ const App = () => {
           setUsername('');
           setPassword('');
         } else {
-          console.error('Failed to add user');
+          console.error('Login failed');
         }
       } catch (error) {
         console.error('Error:', error);
@@ -66,9 +59,15 @@ const App = () => {
     }
   };
 
+  // Filter contacts based on search query
+  const filteredContacts = contacts?.filter((contact) =>
+    contact?.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    contact?.phone.includes(searchQuery)
+  );
+
   const handleLogout = () => {
     setIsLoggedIn(false);
-    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('isLoggedIn'); // Remove login status from local storage
   };
 
   return (
@@ -78,19 +77,18 @@ const App = () => {
           <Navbar onLogout={handleLogout} />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/contacts" element={<Contacts contacts={contacts} />} />
-            <Route path="/contact-list" element={<ContactList contacts={filteredContacts} />} /> 
+            <Route path="/contacts" element={
+              <>
+                 <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+                 <Contacts contacts={filteredContacts} />
+              </>
+              
+              } />
             <Route path="/details" element={<Details />} />
             <Route path="/contact-form" element={<ContactForm />} />
           </Routes>
-
-          <div>
-            <h1>Contact Manager</h1>
-            <button>Add Contacts</button>
-            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-            <ContactList contacts={filteredContacts} />
-            <button>Delete</button> <br /> <button>Edit</button>
-          </div>
+          <HeroSection />
+          <Footer />
         </>
       ) : (
         <div className="login-container">
@@ -116,6 +114,6 @@ const App = () => {
       )}
     </Router>
   );
-};
+}
 
 export default App;
