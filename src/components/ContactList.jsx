@@ -12,9 +12,9 @@ const ContactList = ({ contacts }) => {
   return (
     <div
       style={{
-        display: "flex",
+        display: "grid",
         flexWrap: "wrap",
-        justifyContent: "center",
+        justifyContent: "start-left",
         gap: "30px",
         padding: "70px",
       }}
