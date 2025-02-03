@@ -13,7 +13,7 @@ const ContactList = ({ contacts }) => {
     <div
       style={{
         maxWidth: "500px",
-        margin: "0 auto",
+        margin: "50px auto",
         padding: "20px",
         border: "1px solid #ddd",
         borderRadius: "10px",
@@ -24,7 +24,7 @@ const ContactList = ({ contacts }) => {
       <h2 style={{ textAlign: "center", marginBottom: "20px", color: "#333" }}>
         Contact List
       </h2>
-      <ul style={{ listStyle: "none", padding: "2" }}>
+      <ul style={{ listStyle: "none", padding: "5px" }}>
         {contacts.map((contact) => (
           <li
             key={contact.id}
