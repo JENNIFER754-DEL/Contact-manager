@@ -4,7 +4,7 @@ const ContactList = ({ contacts }) => {
   if (!contacts || contacts.length === 0) {
     return (
       <p style={{ textAlign: "center", fontSize: "18px", color: "gray" }}>
-        No contacts available.
+        No contacts data available.
       </p>
     );
   }
@@ -34,7 +34,7 @@ const ContactList = ({ contacts }) => {
             }}
           >
             <h3 style={{ margin: "5px 0", color: "black" }}>{contact.name}</h3>
-            <p style={{ margin: "5px 0", fontSize: "16px", color: "#555" }}>
+            <p style={{ margin: "5px 0", fontSize: "16px", color: "red" }}>
               📧 {contact.email}
             </p>
             <p style={{ margin: "5px 0", fontSize: "16px", color: "#555" }}>
