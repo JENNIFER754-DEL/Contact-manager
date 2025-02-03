@@ -35,12 +35,13 @@ const ContactList = ({ contacts }) => {
           }}
         >
           <h3 style={{ margin: "10px 0", color: "#333" }}>{contact.name}</h3>
-          <p style={{ margin: "5px 0", fontSize: "16px", color: "red" }}>
+
+          {/* <p style={{ margin: "5px 0", fontSize: "16px", color: "red" }}>
             📧 {contact.email}
           </p>
           <p style={{ margin: "5px 0", fontSize: "16px", color: "#555" }}>
-            📞 {contact.phone}
-          </p>
+            📞 {contact.phone} */}
+          {/* </p> */}
         </div>
       ))}
     </div>
