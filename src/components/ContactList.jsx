@@ -10,15 +10,17 @@ const ContactList = ({ contacts }) => {
   }
 
   return (
+    
     <div
       style={{
-        display: "grid",
+        display: "row",
         flexWrap: "wrap",
         justifyContent: "start-left",
         gap: "30px",
         padding: "70px",
       }}
     >
+      <h2>Contact List</h2>
       {contacts.map((contact) => (
         <div
           key={contact.id}
@@ -37,7 +39,7 @@ const ContactList = ({ contacts }) => {
             📧 {contact.email}
           </p>
           <p style={{ margin: "5px 0", fontSize: "16px", color: "#555" }}>
-            📞 {contact.mobileNo}
+            📞 {contact.phone}
           </p>
         </div>
       ))}

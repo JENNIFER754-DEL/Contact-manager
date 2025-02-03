@@ -12,14 +12,12 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
           padding: "12px",
           width: "100%",
           maxWidth: "400px",
-          border: "2px solid #007bff",
+          border: "2px solidrgb(0, 26, 255)",
           borderRadius: "8px",
           fontSize: "16px",
           outline: "none",
           transition: "border-color 0.3s ease-in-out",
         }}
-        onFocus={(e) => (e.target.style.borderColor = "#0056b3")}
-        onBlur={(e) => (e.target.style.borderColor = "#007bff")}
       />
     </div>
   );
