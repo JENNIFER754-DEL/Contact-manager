@@ -8,7 +8,7 @@ function Home() {
     <div className="home-container">
       {/* Hero Content */}
       <div className="home-content">
-        <h1 className="home-title">Manage Your Contacts with Ease</h1>
+        <h1 className="home-title">Managing Contacts with Ease</h1>
         <p className="home-subtitle">
           Organize and store your contacts effortlessly. Stay connected, stay organized.
         </p>

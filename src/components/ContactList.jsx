@@ -12,35 +12,37 @@ const ContactList = ({ contacts }) => {
   return (
     <div
       style={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        gap: "30px",
-        padding: "70px",
+        maxWidth: "500px",
+        margin: "0 auto",
+        padding: "20px",
+        border: "1px solid #ddd",
+        borderRadius: "10px",
+        boxShadow: "2px 2px 10px rgba(0, 0, 0, 0.1)",
+        backgroundColor: "#fff",
       }}
     >
-      {contacts.map((contact) => (
-        <div
-          key={contact.id}
-          style={{
-            width: "280px",
-            border: "1px solid #ddd",
-            borderRadius: "10px",
-            padding: "15px",
-            boxShadow: "2px 2px 10px rgba(0, 0, 0, 0.1)",
-            textAlign: "center",
-            backgroundColor: "#fff",
-          }}
-        >
-          <h3 style={{ margin: "10px 0", color: "#333" }}>{contact.name}</h3>
-          <p style={{ margin: "5px 0", fontSize: "16px", color: "#555" }}>
-            📧 {contact.email}
-          </p>
-          <p style={{ margin: "5px 0", fontSize: "16px", color: "#555" }}>
-            📞 {contact.mobileNo}
-          </p>
-        </div>
-      ))}
+      <h2 style={{ textAlign: "center", marginBottom: "20px", color: "#333" }}>
+        Contact List
+      </h2>
+      <ul style={{ listStyle: "none", padding: "2" }}>
+        {contacts.map((contact) => (
+          <li
+            key={contact.id}
+            style={{
+              padding: "10px",
+              borderBottom: "1px solid #ddd",
+            }}
+          >
+            <h3 style={{ margin: "5px 0", color: "black" }}>{contact.name}</h3>
+            <p style={{ margin: "5px 0", fontSize: "16px", color: "#555" }}>
+              📧 {contact.email}
+            </p>
+            <p style={{ margin: "5px 0", fontSize: "16px", color: "#555" }}>
+              📞 {contact.phone}
+            </p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
